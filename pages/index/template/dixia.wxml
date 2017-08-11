@@ -1,0 +1,54 @@
+<template name="template_dixia">
+<view class="input-group">
+   <text class="text-1">车位配比</text>
+  <picker mode="selector" range="{{dixia.array}}" value="{{dixia.index}}"  range-key="name"  bindchange="dixiaPickerSelected" >
+      <input class="input" type="digit" value="{{dixia.peibi.name}}"/>
+  </picker>
+  
+</view>
+<view class="input-group">
+   <text class="text-1">产权车位</text>
+    <input class="input-black" type="digit" value="{{dixia.chanquan_count}}"   disabled="true"/>
+    <text class="text-2">个</text>
+</view>
+<view class="input-group">
+   <text class="text-1">价格</text>
+    <input class="input-black" type="digit" value="{{dixia.chanquan_ddanjia}}"  disabled="true"/>
+      <text class="text-2">万元/个</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black"  type="digit" value="{{dixia.chanquan_sum}}" disabled="true"/>
+   <text class="text-2">万元</text>
+</view>
+<view class="input-group">
+   <text class="text-1"> 人权车位</text>
+    <input class="input-black" type="digit" value="{{dixia.renfang_count}}"   disabled="true"/>
+  <text class="text-2">个</text>
+</view>
+<view class="input-group">
+   <text class="text-1">价格</text>
+    <input class="input-black" type="digit" value="{{dixia.renfang_count}}"  disabled="true"/>
+      <text class="text-2">万元/个</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" disabled="true" type="digit" value="{{dixia.renfang_sum}}" disabled="true"/>
+   <text class="text-2">万元</text>
+</view>
+<view class="input-group">
+   <text class="text-1">储藏室</text>
+    <input class="input-black" type="digit" value="{{dixia.chucang_count}}" disabled="true"/>
+    <text class="text-2">㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">价格</text>
+    <input class="input-black" type="digit" value="{{dixia.chucang_danjia}}"  disabled="true"/>
+      <text class="text-2">元/㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" disabled="true" type="digit" value="{{dixia.chucang_sum}}" disabled="true"/>
+   <text class="text-2">万元</text>
+</view>
+</template>>

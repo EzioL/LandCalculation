@@ -1,0 +1,5 @@
+<template name="template_header">
+<view class="header">
+	
+</view>
+</template>

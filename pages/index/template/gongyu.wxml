@@ -1,0 +1,26 @@
+<template name="template_gongyu">
+<view class="input-group">
+   <text class="text-1">标准</text>
+  <picker mode="selector" range="{{gongyu.array}}" value="{{gongyu.index}}"   range-key="name"  bindchange="gongyuPickerSelected" >
+      <input class="input" disabled="true" value="{{gongyu.biaozhun.name}}" />
+  </picker>
+   
+</view>
+
+<view class="input-group">
+   <text class="text-1">面积</text>
+    <input class="input" value="{{gongyu.mianji}}" bindinput="gongyuMianjiInput"  />
+   <text class="text-2">㎡</text>
+</view>
+
+<view class="input-group">
+   <text class="text-1">单价</text>
+    <input class="input" type="digit" value="{{gongyu.danjia}}" bindinput="gongyuDanjiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" disabled="true" type="digit" value="{{gongyu.sum}}"/>
+   <text class="text-2">万元</text>
+</view>
+</template>>

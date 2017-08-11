@@ -1,0 +1,31 @@
+<template name="template_basic">
+<view class="input-group">
+   <text class="text-1">占地面积</text>
+    <input class="input" type="digit" value="{{basic.zhandi}}"  bindinput="zhandiInput"/>
+   <text class="text-2">㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">容积率</text>
+    <input class="input" type="digit" value="{{basic.rongji}}" bindinput="rongjiInput"/>
+</view>
+<view class="input-group">
+   <text class="text-1">计容建面</text>
+    <input class="input-black" disabled="true" value="{{basic.jirong}}" />
+   <text class="text-2">㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">建筑密度</text>
+    <input class="input" type="number" value="{{basic.midu}}" bindinput="miduInput"/>
+   <text class="text-2">  %</text>
+</view>
+<view class="input-group">
+   <text class="text-1">地价水平</text>
+    <input class="input" type="digit" value="{{basic.dijia}}" bindinput="dijiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" disabled="true" type="digit" value="{{basic.jirong_sum}}"/>
+   <text class="text-2">万元</text>
+</view>
+</template>>

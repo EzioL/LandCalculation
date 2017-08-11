@@ -1,0 +1,26 @@
+<template name="template_zhuzhai">
+<view class="input-group">
+   <text class="text-1">标准</text>
+  <picker mode="selector" range="{{zhuzhai.array}}" value="{{zhuzhai.index}}"  range-key="name"  bindchange="zhuzhaiPickerSelected" >
+      <input class="input" disabled="true" value="{{zhuzhai.biaozhun.name}}" />
+  </picker>
+   
+</view>
+
+<view class="input-group">
+   <text class="text-1">面积</text>
+    <input class="input-black" value="{{zhuzhai.mianji}}" bindinput="zhuzhaiMianjiInput" disabled="true" />
+   <text class="text-2">㎡</text>
+</view>
+
+<view class="input-group">
+   <text class="text-1">单价</text>
+    <input class="input" type="digit" value="{{zhuzhai.danjia}}" bindinput="zhuzhaiDanjiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" type="digit" value="{{zhuzhai.sum}}"  disabled="true"/>
+   <text class="text-2">万元</text>
+</view>
+</template>>

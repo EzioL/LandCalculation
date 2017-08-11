@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="index">
+  <import src="template/header.wxml" />
+  <template is="template_header" data="{{basic}}" />
+
+
+  <view class="index-bd">
+    <view class="kind-list">
+      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class="kind-list-item">
+          <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+            <view class="kind-list-text">{{item.name}}</view>
+          </view>
+          <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+            <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+
+              <block wx:if="{{item.id == 'basic'}}">
+                <import src="template/basic-information.wxml" />
+                <template is="template_basic" data="{{basic}}" />
+              </block>
+
+              <block wx:if="{{item.id == 'zhuzhai'}}">
+                <import src="template/zhuzhai.wxml" />
+                <template is="template_zhuzhai" data="{{zhuzhai}}" />
+              </block>
+              
+               <block wx:if="{{item.id == 'dishang'}}">
+                <import src="template/dishang.wxml" />
+                <template is="template_dishang" data="{{dishang}}" />
+              </block>
+
+              <block wx:if="{{item.id == 'xiezi'}}">
+                <import src="template/xiezi.wxml" />
+                <template is="template_xiezi" data="{{xiezi}}" />
+              </block>
+
+               <block wx:if="{{item.id == 'gongyu'}}">
+                <import src="template/gongyu.wxml" />
+                <template is="template_gongyu" data="{{gongyu}}" />
+              </block>
+
+               <block wx:if="{{item.id == 'dixia'}}">
+                <import src="template/dixia.wxml" />
+                <template is="template_dixia" data="{{dixia}}" />
+              </block>
+
+               <block wx:if="{{item.id == 'qita'}}">
+                <import src="template/qita.wxml" />
+                <template is="template_qita" data="{{qita}}" />
+              </block>
+
+               <block wx:if="{{item.id == 'heji'}}">
+                <import src="template/heji.wxml" />
+                <template is="template_heji" data="{{heji}}" />
+              </block>
+
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+</view>

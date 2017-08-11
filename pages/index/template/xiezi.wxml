@@ -1,0 +1,26 @@
+<template name="template_xiezi">
+<view class="input-group">
+   <text class="text-1">标准</text>
+  <picker mode="selector" range="{{xiezi.array}}" value="{{xiezi.index}}"   range-key="name"  bindchange="xieziPickerSelected" >
+      <input class="input" disabled="true" value="{{xiezi.biaozhun.name}}" />
+  </picker>
+   
+</view>
+
+<view class="input-group">
+   <text class="text-1">面积</text>
+    <input class="input" value="{{xiezi.mianji}}" bindinput="xieziMianjiInput" />
+   <text class="text-2">㎡</text>
+</view>
+
+<view class="input-group">
+   <text class="text-1">单价</text>
+    <input class="input" type="digit" value="{{xiezi.danjia}}" bindinput="xieziDanjiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" disabled="true" type="digit" value="{{xiezi.sum}}"  disabled="true"/>
+   <text class="text-2">万元</text>
+</view>
+</template>

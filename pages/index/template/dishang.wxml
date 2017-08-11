@@ -1,0 +1,26 @@
+<template name="template_dishang">
+<view class="input-group">
+   <text class="text-1">底商配比</text>
+  <picker mode="selector" range="{{dishang.array}}" value="{{dishang.index}}"  range-key="name"  bindchange="dishangPickerSelected" >
+      <input class="input" disabled="true" value="{{dishang.peibi.name}}" />
+  </picker>
+   
+</view>
+
+<view class="input-group">
+   <text class="text-1">面积</text>
+    <input class="input-black" value="{{dishang.mianji}}" bindinput="dishangMianjiInput"  disabled="true"/>
+   <text class="text-2">㎡</text>
+</view>
+
+<view class="input-group">
+   <text class="text-1">单价</text>
+    <input class="input" type="digit" value="{{dishang.danjia}}" bindinput="dishangDanjiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
+<view class="input-group">
+   <text class="text-1">总额</text>
+    <input class="input-black" disabled="true" type="digit" value="{{dishang.sum}}"  disabled="true"/>
+   <text class="text-2">万元</text>
+</view>
+</template>>
