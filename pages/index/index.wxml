@@ -39,14 +39,24 @@
                 <template is="template_gongyu" data="{{gongyu}}" />
               </block>
 
-               <block wx:if="{{item.id == 'dixia'}}">
-                <import src="template/dixia.wxml" />
-                <template is="template_dixia" data="{{dixia}}" />
+               <block wx:if="{{item.id == 'huiqian'}}">
+                <import src="template/huiqian.wxml" />
+                <template is="template_huiqian" data="{{huiqian}}" />
               </block>
 
                <block wx:if="{{item.id == 'qita'}}">
                 <import src="template/qita.wxml" />
                 <template is="template_qita" data="{{qita}}" />
+              </block>
+
+               <block wx:if="{{item.id == 'dixia'}}">
+                <import src="template/dixia.wxml" />
+                <template is="template_dixia" data="{{dixia}}" />
+              </block>
+
+               <block wx:if="{{item.id == 'tiaozheng'}}">
+                <import src="template/tiaozheng.wxml" />
+                <template is="template_tiaozheng" data="{{tiaozheng}}" />
               </block>
 
                <block wx:if="{{item.id == 'heji'}}">

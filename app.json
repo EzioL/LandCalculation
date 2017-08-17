@@ -6,7 +6,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#00B83F",
     "navigationBarTitleText": "土地财务速算",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": "true"

@@ -1,3 +1,5 @@
+@import "weui.wxss";
+
 .text-title {
   font-size: 1.375em;
   line-height: 1.4em;
@@ -21,13 +23,13 @@
 }
 
 .input{
-border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; background-color: white; font-size:14px; line-height:30px;
+text-align:center;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; background-color: white; font-size:14px; line-height:30px;
 }
 .input-100{
-border: 1px solid #DFDFDF; height:35px; line-height:30px; width:100%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; background-color: white; font-size:14px; line-height:30px;
+text-align:center;text-align:center;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:100%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; background-color: white; font-size:14px; line-height:30px;
 }
 .input-black{
-background: #DFDFDF;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px;   border-radius: 5; 
+text-align:center;background: #DFDFDF;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px;   border-radius: 5; 
 }
 
 .header{

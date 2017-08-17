@@ -24,11 +24,19 @@ Page({
         id: 'gongyu',
         name: '公寓',
         open: false,
+      },  {
+        id: 'huiqian',
+        name: '回迁',
+        open: false,
       }, {
+        id: 'qita',
+        name: '其他',
+        open: false,
+      },{
         id: 'dixia',
         name: '地下部分',
       }, {
-        id: 'qita',
+        id: 'tiaozheng',
         name: '其他调整项',
       }, {
         id: 'heji',
@@ -43,53 +51,71 @@ Page({
       jirong: '',
       midu: '',
       dijia: '',
-      jirong_sum: '',
+      jirong_sum: 0,
     },
     zhuzhai: {
       array: [],
       index: 0,
       biaozhun: {},
-      mianji: '',
+      mianji: 0,
       danjia: '',
-      sum: ''
+      sum: 0
     },
     dishang: {
       array: [],
       index: 0,
       peibi: {},
-      mianji: '',
+      mianji: 0,
       danjia: '',
-      sum: ''
+      sum: 0
     },
     xiezi: {
       array: [],
       index: 0,
       biaozhun: {},
-      mianji: '',
+      mianji: 0,
       danjia: '',
-      sum: ''
+      sum: 0
     },
     gongyu: {
       array: [],
       index: 0,
       biaozhun: {},
-      mianji: '',
+      mianji: 0,
       danjia: '',
-      sum: ''
+      sum: 0
+    },
+    huiqian: {
+      mianji: 0,
+      danjia: '',
+      sum: 0
+    },
+    qita: {
+      mianji: 0,
+      danjia: '',
+      sum: 0
     },
     dixia: {
       array: [],
       index: 0,
       peibi: {},
-      chanquan_count: '',
+      chanquan_count: 0,
       chanquan_danjia: '',
-      chanquan_sum: '',
-      renfang_count: '',
+      chanquan_sum: 0,
+      renfang_count: 0,
       renfang_danjia: '',
-      renfang_sum: '',
-      chucang_count: '',
+      renfang_sum: 0,
+      chucang_count: 0,
       chucang_danjia: '',
-      chucang_sum: '',
+      chucang_sum: 0,
+    },
+    tiaozheng: {
+      zhuzhai: '',
+      chanpin: '',
+    },
+    heji: {
+      mianji: 0,
+      sum: 0,
     },
 
   },
@@ -274,6 +300,48 @@ xieziPickerSelected: function (e) {
    dataCompute(this)
   },
 
+  //回迁
+  huiqianMianjiInput: function (e) {
+    var hq = this.data.huiqian;
+    hq.mianji = e.detail.value;
+    hq.sum = hq.mianji * hq.danjia / 10000;
+    this.setData({
+      huiqian: hq
+    });
+   dataCompute(this)
+  },
+    huiqianDanjiaInput: function (e) {
+    var hq = this.data.huiqian;
+    hq.danjia = e.detail.value;
+    hq.sum = hq.mianji * hq.danjia / 10000;
+    this.setData({
+      huiqian: hq
+    });
+   dataCompute(this)
+  },
+
+
+  //其他
+
+  qitaMianjiInput: function (e) {
+    var qt = this.data.qita;
+    qt.mianji = e.detail.value;
+    qt.sum = qt.mianji * qt.danjia / 10000;
+    this.setData({
+      qita: qt
+    });
+   dataCompute(this)
+  },
+  qitaDanjiaInput: function (e) {
+    var qt = this.data.qita;
+    qt.danjia = e.detail.value;
+    qt.sum = qt.mianji * qt.danjia / 10000;
+    this.setData({
+      qita: qt
+    });
+   dataCompute(this)
+  },
+
   //地下部分
   dixiaPickerSelected: function (e) {
     var dx = this.data.dixia;
@@ -284,9 +352,26 @@ xieziPickerSelected: function (e) {
     });
     dataCompute(this)
   },
-  //其他
-
+  //其他调整
+  qitaZhuZhaiInput: function (e) {
+    var qt = this.data.tiaozheng;
+    qt.zhuzhai = e.detail.value;
+    this.setData({
+      tiaozheng: qt
+    });
+    dataCompute(this)
+  },
+   qitaChanPinInput: function (e) {
+    var qt = this.data.tiaozheng;
+    qt.chanpin = e.detail.value;
+    this.setData({
+      tiaozheng: qt
+    });
+    dataCompute(this)
+  },
   //合计
+
+
 
 })
 function dataCompute(that) {
@@ -301,45 +386,74 @@ function dataCompute(that) {
 
   ds.mianji = b.jirong * ds.peibi.value /100;
   z.mianji = ( b.jirong - ds.mianji - xz.mianji -gy.mianji ) *1.03;
+  z.sum = z.mianji * z.danjia / 10000;
 
-  var 住宅人防车位面积 = parseInt(z.mianji * 0.08);
-  var 住宅人防车位个数 = parseInt(住宅人防车位面积 / res.area_defense);
-  var 住宅产权车位个数 = parseInt(z.mianji / z.mianji * dx.peibi.value * 0.01) -住宅人防车位个数;
+  var 住宅人防车位面积 = z.mianji * 0.08;
+  var 住宅人防车位个数 = 住宅人防车位面积 / res.area_defense;
+  住宅人防车位个数 = parseInt(住宅人防车位个数 + 0.5);
+ 
+  var 住宅产权车位个数 = z.mianji / z.biaozhun.value * dx.peibi.value * 0.01 -住宅人防车位个数;
+  住宅产权车位个数 = parseInt(住宅产权车位个数 + 0.5);
+  var 住宅产权车位面积 = 住宅产权车位个数 * res.area_parking * (100 -res.ratio_parking_area) / 100;
 
-  var 商业人防车位面积 = (gy.mianji + ds.mianji + xz.mianji) * 0.08;
-  var 商业人防车位个数 = parseInt(商业人防车位面积 / res.area_defense);
-  var 商业产权车位个数 = (gy.mianji + ds.mianji + xz.mianji) * 0.01 - 商业人防车位个数;
+  var 商业人防车位面积 = (ds.mianji + xz.mianji + gy.mianji ) * 0.08;
+  var 商业人防车位个数 = parseInt(商业人防车位面积 / res.area_defense +0.5);
 
-  var 住宅储藏室面积 = (b.rongji > 2.4 ? 2 : 1) * z.mianji / b.jirong * b.zhandi * b.midu * 0.01;
+  var 商业产权车位个数 = (gy.mianji + ds.mianji + xz.mianji) / 100 - 商业人防车位个数;
+  商业产权车位个数 = parseInt(商业产权车位个数 + 0.5);
+  var 商业产权车位面积 = 商业产权车位个数 * res.area_parking;
+
+  var 住宅储藏室面积 = 0;
+  if (b.rongji > 2.4) {
+    住宅储藏室面积 = 2* z.mianji / b.jirong * b.zhandi * b.midu * 0.01;
+  }else{
+    住宅储藏室面积 = 1* z.mianji / b.jirong * b.zhandi * b.midu * 0.01;
+  }
+
 
   dx.chanquan_count = 住宅产权车位个数 + 商业产权车位个数;
-  if (z.biaozhun.name == '尊享系') {
-     dx.chanquan_danjia = '17';
-  }else{
-     dx.chanquan_danjia = '12';
-  }
-  dx.chucang_sum = dx.chanquan_count * dx.chanquan_danjia;
 
-  dx.renfang_count = 住宅人防车位个数 + 商业人防车位面积;
   if (z.biaozhun.name == '尊享系') {
-     dx.renfang_danjia = '15';
+     dx.chanquan_danjia = '35';
   }else{
-     dx.renfang_danjia = '10';
+     dx.chanquan_danjia = '30';
   }
+  dx.chanquan_sum = dx.chanquan_count * dx.chanquan_danjia;
+
+  dx.renfang_count = 住宅人防车位个数 + 商业人防车位个数;
+  if (z.biaozhun.name == '尊享系') {
+     dx.renfang_danjia = '32';
+  }else{
+     dx.renfang_danjia = '27';
+  }
+
   dx.renfang_sum = dx.renfang_count * dx.renfang_danjia;
 
   dx.chucang_count = 住宅储藏室面积;
-  if (z.biaozhun.name == '尊享系') {
-     dx.chucang_danjia = '3500';
-  }else{
-     dx.chucang_danjia = '3000';
+  console.log("住宅储藏室面积-->"+ dx.chucang_count );
+  if (isNaN(dx.chucang_count)) {
+      dx.chucang_count = 0;
   }
-  dx.chucang_sum = dx.chucang_count * dx.chucang_danjia;
+  if (z.biaozhun.name == '尊享系') {
+     dx.chucang_danjia = '7000';
+  }else{
+     dx.chucang_danjia = '6000';
+  }
+  dx.chucang_sum = dx.chucang_count * dx.chucang_danjia/10000;
 
+  var hq = that.data.huiqian;
+  var qt = that.data.qita;
+  
+  var hj = that.data.heji;
+  console.log("住宅储藏室面积2-->"+ dx.chucang_count );
+
+  hj.mianji = z.mianji + ds.mianji + xz.mianji + gy.mianji + hq.mianji + qt.mianji  + dx.chanquan_count + dx.renfang_count + dx.chucang_count;;
+  hj.sum = z.sum + ds.sum + xz.sum + gy.sum + hq.sum + qt.sum  + dx.chanquan_sum+ dx.renfang_sum + dx.chucang_sum;
   that.setData({
     dishang:ds,
     zhuzhai:z,
     dixia:dx,
+    heji:hj,
   });
      
 }

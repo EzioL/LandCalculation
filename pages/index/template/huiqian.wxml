@@ -1,18 +1,18 @@
-<template name="template_qita">
+<template name="template_huiqian">
 <view class="input-group">
    <text class="text-1">面积</text>
-    <input class="input" value="{{qita.mianji}}" bindinput="qitaMianjiInput"  />
+    <input class="input" value="{{huiqian.mianji}}" bindinput="huiqianMianjiInput"  />
    <text class="text-2">㎡</text>
 </view>
 
 <view class="input-group">
    <text class="text-1">单价</text>
-    <input class="input" type="digit" value="{{qita.danjia}}" bindinput="qitaDanjiaInput"/>
+    <input class="input" type="digit" value="{{huiqian.danjia}}" bindinput="huiqianDanjiaInput"/>
    <text class="text-2">元/㎡</text>
 </view>
 <view class="input-group">
    <text class="text-1">总额</text>
-    <input class="input-black" disabled="true" type="digit" value="{{qita.sum}}"/>
+    <input class="input-black" disabled="true" type="digit" value="{{huiqian.sum}}"/>
    <text class="text-2">万元</text>
 </view>
 </template>>

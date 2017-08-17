@@ -2,7 +2,7 @@
 <view class="input-group">
    <text class="text-1">车位配比</text>
   <picker mode="selector" range="{{dixia.array}}" value="{{dixia.index}}"  range-key="name"  bindchange="dixiaPickerSelected" >
-      <input class="input" type="digit" value="{{dixia.peibi.name}}"/>
+      <input class="input" type="digit" value="{{dixia.peibi.name}}" disabled="true"/>
   </picker>
   
 </view>
@@ -13,7 +13,7 @@
 </view>
 <view class="input-group">
    <text class="text-1">价格</text>
-    <input class="input-black" type="digit" value="{{dixia.chanquan_ddanjia}}"  disabled="true"/>
+    <input class="input-black" type="digit" value="{{dixia.chanquan_danjia}}"  disabled="true"/>
       <text class="text-2">万元/个</text>
 </view>
 <view class="input-group">
@@ -22,13 +22,13 @@
    <text class="text-2">万元</text>
 </view>
 <view class="input-group">
-   <text class="text-1"> 人权车位</text>
+   <text class="text-1"> 人防车位</text>
     <input class="input-black" type="digit" value="{{dixia.renfang_count}}"   disabled="true"/>
   <text class="text-2">个</text>
 </view>
 <view class="input-group">
    <text class="text-1">价格</text>
-    <input class="input-black" type="digit" value="{{dixia.renfang_count}}"  disabled="true"/>
+    <input class="input-black" type="digit" value="{{dixia.renfang_danjia}}"  disabled="true"/>
       <text class="text-2">万元/个</text>
 </view>
 <view class="input-group">
