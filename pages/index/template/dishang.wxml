@@ -1,8 +1,8 @@
 <template name="template_dishang">
 <view class="input-group">
    <text class="text-1">底商配比</text>
-  <picker mode="selector" range="{{dishang.array}}" value="{{dishang.index}}"  range-key="name"  bindchange="dishangPickerSelected" >
-      <input class="input" disabled="true" value="{{dishang.peibi.name}}" />
+  <picker mode="selector" range="{{dishang.array}}" value="{{dishang.index}}"  range-key="name"  bindchange="dishangPickerSelected" class="picker">
+      <text>{{dishang.peibi.name}}</text>
   </picker>
    
 </view>

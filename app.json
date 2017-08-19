@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/show/show",
     "pages/logs/logs"
     
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#00B83F",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "土地财务速算",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": "true"

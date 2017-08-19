@@ -21,6 +21,9 @@
 .text-2{
   width:20%; float:right; font-size:16px; line-height:36px; color:#666;text-align:center;
 }
+.picker{
+  width:80%;  font-size:16px; line-height:36px; color:#666;text-align:center;border: 1px solid #DFDFDF; background-color: #FFFFFF; 
+}
 
 .input{
 text-align:center;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; background-color: white; font-size:14px; line-height:30px;
@@ -28,8 +31,12 @@ text-align:center;border: 1px solid #DFDFDF; height:35px; line-height:30px; widt
 .input-100{
 text-align:center;text-align:center;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:100%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto; background-color: white; font-size:14px; line-height:30px;
 }
-.input-black{
+/*.input-black{
 text-align:center;background: #DFDFDF;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px;   border-radius: 5; 
+}*/
+
+.input-black{
+background: #DFDFDF;text-align:center;border: 1px solid #DFDFDF; height:35px; line-height:30px; width:70%; padding-left: 5px; -webkit-appearance: none; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; border-radius: 0; -webkit-rtl-ordering: logical; -webkit-user-select: text; cursor: auto;font-size:14px; line-height:30px;
 }
 
 .header{

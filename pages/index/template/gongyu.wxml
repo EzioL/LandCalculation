@@ -1,8 +1,8 @@
 <template name="template_gongyu">
 <view class="input-group">
    <text class="text-1">标准</text>
-  <picker mode="selector" range="{{gongyu.array}}" value="{{gongyu.index}}"   range-key="name"  bindchange="gongyuPickerSelected" >
-      <input class="input" disabled="true" value="{{gongyu.biaozhun.name}}" />
+  <picker mode="selector" range="{{gongyu.array}}" value="{{gongyu.index}}"   range-key="name"  bindchange="gongyuPickerSelected" class="picker">
+      <text>{{gongyu.biaozhun.name}}</text>
   </picker>
    
 </view>

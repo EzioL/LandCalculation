@@ -1,4 +1,12 @@
 <template name="template_basic">
+
+<view class="input-group">
+   <text class="text-1">项目类型</text>
+  <picker mode="selector" range="{{basic.array}}" value="{{basic.index}}"  range-key="name"  bindchange="basicPickerSelected" class="picker">
+      <text>{{basic.project.name}}</text>
+  </picker>
+  
+</view>
 <view class="input-group">
    <text class="text-1">占地面积</text>
     <input class="input" type="digit" value="{{basic.zhandi}}"  bindinput="zhandiInput"/>
@@ -10,7 +18,7 @@
 </view>
 <view class="input-group">
    <text class="text-1">计容建面</text>
-    <input class="input-black" disabled="true" value="{{basic.jirong}}" />
+  <input class="input-black" disabled="true" value="{{basic.jirong}}" />
    <text class="text-2">㎡</text>
 </view>
 <view class="input-group">

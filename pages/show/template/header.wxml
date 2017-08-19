@@ -1,0 +1,23 @@
+<template name="template_header">
+
+<view wx:if="{{rate < 6}}">
+ <view class="header-6">
+	<text class="text">净利率</text>
+  <text class="text">{{rate}}%</text>
+</view>
+</view>
+<view wx:elif="{{rate >12}}">  
+<view class="header-12">
+	<text class="text">净利率</text>
+  <text class="text">{{rate}}%</text>
+</view>
+</view>
+
+<view wx:else> 
+<view class="header-9">
+	<text class="text">净利率</text>
+  <text class="text">{{rate}}%</text>
+</view>
+
+</view>
+</template>

@@ -1,4 +1,11 @@
 <template name="template_qita">
+
+<view class="input-group">
+   <text class="text-1">造价</text>
+    <input class="input" type="digit" value="{{qita.zaojia}}" bindinput="qitaZaojiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
+
 <view class="input-group">
    <text class="text-1">面积</text>
     <input class="input" value="{{qita.mianji}}" bindinput="qitaMianjiInput"  />

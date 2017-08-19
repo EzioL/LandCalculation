@@ -1,8 +1,8 @@
 <template name="template_zhuzhai">
 <view class="input-group">
    <text class="text-1">标准</text>
-  <picker mode="selector" range="{{zhuzhai.array}}" value="{{zhuzhai.index}}"  range-key="name"  bindchange="zhuzhaiPickerSelected" >
-      <input class="input" disabled="true" value="{{zhuzhai.biaozhun.name}}" />
+  <picker mode="selector" range="{{zhuzhai.array}}" value="{{zhuzhai.index}}"  range-key="name"  bindchange="zhuzhaiPickerSelected" class="picker">
+        <text>{{zhuzhai.biaozhun.name}}</text>
   </picker>
    
 </view>

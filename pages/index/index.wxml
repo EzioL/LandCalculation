@@ -1,9 +1,5 @@
 <!--index.wxml-->
 <view class="index">
-  <import src="template/header.wxml" />
-  <template is="template_header" data="{{basic}}" />
-
-
   <view class="index-bd">
     <view class="kind-list">
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
@@ -69,6 +65,8 @@
         </view>
       </block>
     </view>
+
+    <button bindtap="onItemClick"  type="primary">财务输出</button>
   </view>
 
 

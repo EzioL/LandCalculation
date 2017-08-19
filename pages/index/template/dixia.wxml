@@ -1,8 +1,8 @@
 <template name="template_dixia">
 <view class="input-group">
    <text class="text-1">车位配比</text>
-  <picker mode="selector" range="{{dixia.array}}" value="{{dixia.index}}"  range-key="name"  bindchange="dixiaPickerSelected" >
-      <input class="input" type="digit" value="{{dixia.peibi.name}}" disabled="true"/>
+  <picker mode="selector" range="{{dixia.array}}" value="{{dixia.index}}"  range-key="name"  bindchange="dixiaPickerSelected" class="picker">
+      <text>{{dixia.peibi.name}}</text>
   </picker>
   
 </view>

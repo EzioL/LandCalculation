@@ -1,8 +1,8 @@
 <template name="template_xiezi">
 <view class="input-group">
    <text class="text-1">标准</text>
-  <picker mode="selector" range="{{xiezi.array}}" value="{{xiezi.index}}"   range-key="name"  bindchange="xieziPickerSelected" >
-      <input class="input" disabled="true" value="{{xiezi.biaozhun.name}}" />
+  <picker mode="selector" range="{{xiezi.array}}" value="{{xiezi.index}}"   range-key="name"  bindchange="xieziPickerSelected" class="picker">
+       <text>{{xiezi.biaozhun.name}}</text>
   </picker>
    
 </view>
