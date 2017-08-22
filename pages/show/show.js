@@ -40,6 +40,7 @@ function requestData(that, json) {
    console.log(d);
   wx.request({
     url: 'https://land.guanweiming.com/preset/compute', 
+    //url: 'https://192.168.0.82/preset/compute',
     method: 'POST',
     data: d,
     header: {

@@ -9,7 +9,7 @@
 
 <view class="input-group">
    <text class="text-1">面积</text>
-    <input class="input" value="{{xiezi.mianji}}" bindinput="xieziMianjiInput" />
+    <input class="input" type="digit" value="{{xiezi.mianji}}" bindinput="xieziMianjiInput" />
    <text class="text-2">㎡</text>
 </view>
 

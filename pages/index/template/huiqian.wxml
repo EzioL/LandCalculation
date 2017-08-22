@@ -1,7 +1,13 @@
 <template name="template_huiqian">
+
+<view class="input-group">
+   <text class="text-1">造价</text>
+    <input class="input" type="digit" value="{{huiqian.zaojia}}" bindinput="huiqianZaojiaInput"/>
+   <text class="text-2">元/㎡</text>
+</view>
 <view class="input-group">
    <text class="text-1">面积</text>
-    <input class="input" value="{{huiqian.mianji}}" bindinput="huiqianMianjiInput"  />
+    <input class="input"  type="digit" value="{{huiqian.mianji}}" bindinput="huiqianMianjiInput"  />
    <text class="text-2">㎡</text>
 </view>
 

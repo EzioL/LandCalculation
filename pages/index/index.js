@@ -388,6 +388,32 @@ Page({
     });
     dataCompute(this)
   },
+  chanquanDanjiaInput: function (e) {
+    var dx = this.data.dixia;
+    dx.chanquan_danjia = e.detail.value;
+    this.setData({
+      dixia: dx
+    });
+    dataCompute(this)
+  },
+  renfangDanjiaInput: function (e) {
+    var dx = this.data.dixia;
+    dx.renfang_danjia = e.detail.value;
+    this.setData({
+      dixia: dx
+    });
+    dataCompute(this)
+  },
+  chucangDanjiaInput: function (e) {
+    var dx = this.data.dixia;
+    dx.chucang_danjia = e.detail.value;
+    this.setData({
+      dixia: dx
+    });
+    dataCompute(this)
+  },
+
+
   //其他调整
   tiaozhengZhuZhaiInput: function (e) {
     var qt = this.data.tiaozheng;
@@ -445,8 +471,8 @@ Page({
     json.e31 = res.business_price;
     json.e32 = xz.biaozhun.value;
     json.e33 = gy.biaozhun.value;
-    json.e34 = hq.danjia;
-    json.e35 = qt.danjia;
+    json.e34 = hq.zaojia;
+    json.e35 = qt.zaojia;
     json.e36 = 0;
     json.e37 = 0;
     json.e38 = dx.danjia;
@@ -470,9 +496,12 @@ function dataCompute(that) {
   var xz = that.data.xiezi;
   var gy = that.data.gongyu;
   var dx = that.data.dixia;
+  var hq = that.data.huiqian;
+  var qt = that.data.qita;
+
 
   ds.mianji = b.jirong * ds.peibi.value / 100;
-  z.mianji = (b.jirong - ds.mianji - xz.mianji - gy.mianji) * 1.03;
+  z.mianji = (b.jirong - ds.mianji - xz.mianji - gy.mianji - hq.mianji -qt.mianji) * 1.03;
   z.sum = z.mianji * z.danjia / 10000;
 
   var 住宅人防车位面积 = z.mianji * 0.08;
@@ -503,19 +532,19 @@ function dataCompute(that) {
   dx.chanquan_mianji  = 住宅产权车位面积 + 商业产权车位面积;
   dx.chucang_mianji = 住宅储藏室面积;
 
-  if (z.biaozhun.name == '尊享系') {
+  /**if (z.biaozhun.name == '尊享系') {
     dx.chanquan_danjia = '35';
   } else {
     dx.chanquan_danjia = '30';
-  }
-  dx.chanquan_sum = dx.chanquan_count * dx.chanquan_danjia;
+  }*/
+  dx.chanquan_sum = parseInt(dx.chanquan_count * dx.chanquan_danjia);
 
   dx.renfang_count = 住宅人防车位个数 + 商业人防车位个数;
-  if (z.biaozhun.name == '尊享系') {
+ /* if (z.biaozhun.name == '尊享系') {
     dx.renfang_danjia = '32';
   } else {
     dx.renfang_danjia = '27';
-  }
+  }*/
 
   dx.renfang_sum = dx.renfang_count * dx.renfang_danjia;
 
@@ -531,14 +560,14 @@ function dataCompute(that) {
   }
   dx.chucang_sum = dx.chucang_count * dx.chucang_danjia / 10000;
 
-  var hq = that.data.huiqian;
-  var qt = that.data.qita;
+  
 
   var hj = that.data.heji;
   console.log("住宅储藏室面积2-->" + dx.chucang_count);
 
-  hj.mianji = z.mianji + ds.mianji + xz.mianji + gy.mianji + hq.mianji + qt.mianji + dx.chanquan_count + dx.renfang_count + dx.chucang_count;;
-  hj.sum = z.sum + ds.sum + xz.sum + gy.sum + hq.sum + qt.sum + dx.chanquan_sum + dx.renfang_sum + dx.chucang_sum;
+  hj.mianji = parseInt(z.mianji + ds.mianji + xz.mianji + gy.mianji + hq.mianji + qt.mianji + dx.chanquan_count + dx.renfang_count + dx.chucang_count);
+
+  hj.sum = parseInt(z.sum + ds.sum + xz.sum + gy.sum + hq.sum + qt.sum + dx.chanquan_sum + dx.renfang_sum + dx.chucang_sum);
   that.setData({
     dishang: ds,
     zhuzhai: z,
@@ -554,6 +583,7 @@ function dataCompute(that) {
 function requestData(that) {
   wx.request({
     url: 'https://land.guanweiming.com/preset',
+    //url: 'https://192.168.0.82/preset',
     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     // header: {}, // 设置请求的 header
     success: function (res) {

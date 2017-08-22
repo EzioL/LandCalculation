@@ -135,7 +135,7 @@ background: #DFDFDF;text-align:center;border: 1px solid #DFDFDF; height:35px; li
   margin-top: 0;
 }
 .kind-list-text{
-  flex: 1;
+  flex: 1;text-align:center;
 }
 .kind-list-img {
   width: 60rpx;

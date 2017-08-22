@@ -9,7 +9,7 @@
 
 <view class="input-group">
    <text class="text-1">面积</text>
-    <input class="input" value="{{gongyu.mianji}}" bindinput="gongyuMianjiInput"  />
+    <input class="input"  type="digit" value="{{gongyu.mianji}}" bindinput="gongyuMianjiInput"  />
    <text class="text-2">㎡</text>
 </view>
 
