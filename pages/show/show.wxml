@@ -34,7 +34,7 @@
         <view class="th">项目</view>
         <view class="th">面积</view>
         <view class="th">成本</view>
-        <view class="th">货值</view>
+        <view class="th">总计</view>
       </view>
       <block wx:for="{{firstArray}}">
         <view class="tr bg-g" wx:if="{{index % 2 == 0}}">

@@ -13,7 +13,7 @@
 </view>
 <view class="input-group">
    <text class="text-1">价格</text>
-    <input class="input" type="digit" value="{{dixia.chanquan_danjia}}"  bindinput="chanquanDanjiaInput"/>
+    <input class="input" type="digit" value="{{dixia.chanquan_danjia}}"  bindinput="chanquanDanjiaInput"  disabled="true"/>
       <text class="text-2">万元/个</text>
 </view>
 <view class="input-group">
@@ -28,7 +28,7 @@
 </view>
 <view class="input-group">
    <text class="text-1">价格</text>
-    <input class="input" type="digit" value="{{dixia.renfang_danjia}}"  bindinput="renfangDanjiaInput"/>
+    <input class="input" type="digit" value="{{dixia.renfang_danjia}}"  bindinput="renfangDanjiaInput"  disabled="true"/>
       <text class="text-2">万元/个</text>
 </view>
 <view class="input-group">
@@ -43,7 +43,7 @@
 </view>
 <view class="input-group">
    <text class="text-1">价格</text>
-    <input class="input" type="digit" value="{{dixia.chucang_danjia}}" bindinput="chucangDanjiaInput"/>
+    <input class="input" type="digit" value="{{dixia.chucang_danjia}}" bindinput="chucangDanjiaInput"  disabled="true"/>
       <text class="text-2">元/㎡</text>
 </view>
 <view class="input-group">

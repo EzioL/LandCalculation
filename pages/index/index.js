@@ -68,7 +68,7 @@ Page({
       array: [],
       index: 0,
       peibi: {},
-      mianji: 0,
+      mianji: '',
       danjia: '',
       sum: 0
     },
@@ -76,7 +76,7 @@ Page({
       array: [],
       index: 0,
       biaozhun: {},
-      mianji: 0,
+      mianji: '',
       danjia: '',
       sum: 0
     },
@@ -84,19 +84,19 @@ Page({
       array: [],
       index: 0,
       biaozhun: {},
-      mianji: 0,
+      mianji: '',
       danjia: '',
       sum: 0
     },
     huiqian: {
         zaojia: '',
-      mianji: 0,
+      mianji: '',
       danjia: '',
       sum: 0
     },
     qita: {
         zaojia: '',
-      mianji: 0,
+      mianji: '',
       danjia: '',
       sum: 0
     },
@@ -123,7 +123,7 @@ Page({
       chanpin: '',
     },
     heji: {
-      mianji: 0,
+      mianji: '',
       sum: 0,
     },
     resData:{
@@ -512,10 +512,10 @@ function dataCompute(that) {
   住宅产权车位个数 = parseInt(住宅产权车位个数 + 0.5);
   var 住宅产权车位面积 = 住宅产权车位个数 * res.area_parking * (100 - res.ratio_parking_area) / 100;
 
-  var 商业人防车位面积 = (ds.mianji + xz.mianji + gy.mianji) * 0.08;
+  var 商业人防车位面积 = (ds.mianji*1.0 + xz.mianji*1.0 + gy.mianji*1.0) * 0.08;
   var 商业人防车位个数 = parseInt(商业人防车位面积 / res.area_defense + 0.5);
 
-  var 商业产权车位个数 = (gy.mianji + ds.mianji + xz.mianji) / 100 - 商业人防车位个数;
+  var 商业产权车位个数 = (gy.mianji*1.0 + ds.mianji*1.0 + xz.mianji*1.0) / 100 - 商业人防车位个数;
   商业产权车位个数 = parseInt(商业产权车位个数 + 0.5);
   var 商业产权车位面积 = 商业产权车位个数 * res.area_parking;
 
@@ -532,24 +532,24 @@ function dataCompute(that) {
   dx.chanquan_mianji  = 住宅产权车位面积 + 商业产权车位面积;
   dx.chucang_mianji = 住宅储藏室面积;
 
-  /**if (z.biaozhun.name == '尊享系') {
-    dx.chanquan_danjia = '35';
+  if (z.biaozhun.name == '尊享系') {
+    dx.chanquan_danjia = '22';
   } else {
-    dx.chanquan_danjia = '30';
-  }*/
+    dx.chanquan_danjia = '20';
+  }
   dx.chanquan_sum = parseInt(dx.chanquan_count * dx.chanquan_danjia);
 
   dx.renfang_count = 住宅人防车位个数 + 商业人防车位个数;
- /* if (z.biaozhun.name == '尊享系') {
-    dx.renfang_danjia = '32';
+  if (z.biaozhun.name == '尊享系') {
+    dx.renfang_danjia = '19';
   } else {
-    dx.renfang_danjia = '27';
-  }*/
+    dx.renfang_danjia = '17';
+  }
 
   dx.renfang_sum = dx.renfang_count * dx.renfang_danjia;
 
   dx.chucang_count = 住宅储藏室面积;
-  console.log("住宅储藏室面积-->" + dx.chucang_count);
+
   if (isNaN(dx.chucang_count)) {
     dx.chucang_count = 0;
   }
@@ -563,11 +563,20 @@ function dataCompute(that) {
   
 
   var hj = that.data.heji;
-  console.log("住宅储藏室面积2-->" + dx.chucang_count);
+/*  console.log("z.mianji-->" + z.mianji);
+console.log("ds.mianji-->" + ds.mianji);
+console.log("xz.mianji-->" + xz.mianji);
+console.log("gy.mianji-->" + gy.mianji);
+console.log("hq.mianji-->" + hq.mianji);
+console.log("qt.mianji-->" + qt.mianji);
+console.log("dx.chanquan_count-->" + dx.chanquan_count);
+console.log("dx.renfang_count-->" + dx.renfang_count);
+console.log("dx.chucang_count-->" + dx.chucang_count);*/
+  hj.mianji = parseInt(z.mianji*1.0 + ds.mianji*1.0 + xz.mianji*1.0 + gy.mianji*1.0 + hq.mianji*1.0 + qt.mianji*1.0 + dx.chanquan_count*1.0 + dx.renfang_count*1.0 + dx.chucang_count*1.0);
 
-  hj.mianji = parseInt(z.mianji + ds.mianji + xz.mianji + gy.mianji + hq.mianji + qt.mianji + dx.chanquan_count + dx.renfang_count + dx.chucang_count);
+  hj.sum = parseInt(z.sum*1.0 + ds.sum*1.0 + xz.sum*1.0 + gy.sum*1.0 + hq.sum*1.0 + qt.sum*1.0 + dx.chanquan_sum*1.0 + dx.renfang_sum*1.0 + dx.chucang_sum*1.0);
 
-  hj.sum = parseInt(z.sum + ds.sum + xz.sum + gy.sum + hq.sum + qt.sum + dx.chanquan_sum + dx.renfang_sum + dx.chucang_sum);
+   console.log("hj.mianji-->" + hj.mianji);
   that.setData({
     dishang: ds,
     zhuzhai: z,
